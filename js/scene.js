@@ -1,31 +1,59 @@
 var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(50, 500 / 400, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(50, 300 / 225, 0.1, 775);
+
+var spheresArray = [];
 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(500, 400);
 document.body.appendChild(renderer.domElement);
 
-var light = new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 );
-scene.add( light );
-
-var geometry = new THREE.SphereGeometry(3, 50, 50, 0, Math.PI * 2, 0, Math.PI * 2);
+var geometry = new THREE.SphereBufferGeometry(3, 32, 50, 0, Math.PI * 3, 0, Math.PI * 1.5);
 var material = new THREE.MeshBasicMaterial({ color: 0x999999, wireframe: true, transparent: true, opacity: 0.45 } );
-var cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+var sphere = new THREE.Mesh(geometry, material);
 
-camera.position.z = 10;
+camera.position.z = 30;
+camera.position.y = 5;
+camera.position.x = 10;
 
-myFunction = function() {
-    cube.material.color = new THREE.Color(0xffffff * Math.random());
-    cube.material.needsUpdate = true;
-    };
+var group = new THREE.Group();
+
+var createGroup = function() {
+    spheresArray.forEach(sphere => group.add(sphere));
+};
+
+var numberOfSpheres = function() {
+    numOfSpheres = document.getElementById("numspheres").value;
+    for(var i = 0; i < numOfSpheres; i++){
+        scene.add(sphere);
+    }
+};
+
+var updateXcameraPosition = function() {
+    camera.position.x = document.getElementById("xaxis").value;
+};
+
+var updateYcameraPosition = function() {
+    camera.position.y = document.getElementById("yaxis").value;
+};
+
+var updateZcameraPosition = function() {
+    camera.position.z = document.getElementById("zaxis").value;
+};
+
+var changeColor = function() {
+    sphere.material.color = new THREE.Color(0xffffff * Math.random());
+    sphere.material.needsUpdate = true;
+};
 
 var render = function () {
     requestAnimationFrame(render);
 
-    cube.rotation.y += 0.01;
+    sphere.rotation.y += 0.05;
+    sphere.rotation.z += 0.01;
+    sphere.rotation.x += 0.05;
 
     renderer.render(scene, camera);
 };
 
+scene.add(sphere);
 render();
