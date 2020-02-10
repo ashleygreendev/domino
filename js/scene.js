@@ -4,7 +4,7 @@ var camera = new THREE.PerspectiveCamera(50, 300 / 225, 0.1, 775);
 var spheresArray = [];
 
 var renderer = new THREE.WebGLRenderer();
-renderer.setSize(500, 400);
+renderer.setSize(1200, 500);
 document.body.appendChild(renderer.domElement);
 
 var geometry = new THREE.SphereBufferGeometry(3, 32, 50, 0, Math.PI * 3, 0, Math.PI * 1.5);

@@ -1,10 +1,12 @@
 <canvas onclick="onclick()" id="canvas"></canvas>
 <head><script src="../js/three.min.js"></script></head>
 <script src="../js/scene.js"></script>
-<button onclick="changeColor()">Change Color</button>
+
 <!-- -------------------------------------------- -->
-<label for="xaxis">Camera Position (x-axis): </label><input type="text" id="xaxis" name="xaxis"><br><br><button onclick="updateXcameraPosition()">x</button>
-<label for="yaxis">Camera Position (y-axis): </label><input type="text" id="yaxis" name="yaxis"><br><br><button onclick="updateYcameraPosition()">y</button>
-<label for="zname">Camera Position (z-axis): </label><input type="text" id="zaxis" name="zaxis"><br><br><button onclick="updateZcameraPosition()">z</button>
-<label for="numspheres">Number of Spheres: </label><input type="text" id="numspheres" name="numspheres">
-    <br><br><button onclick="numberOfSpheres()">spheres</button>
+<div>
+<label for="xaxis">Camera Position (x-axis): </label><input type="text" id="xaxis" name="xaxis"><button onclick="updateXcameraPosition()">x</button></br>
+<label for="yaxis">Camera Position (y-axis): </label><input type="text" id="yaxis" name="yaxis"><button onclick="updateYcameraPosition()">y</button></br>
+<label for="zname">Camera Position (z-axis): </label><input type="text" id="zaxis" name="zaxis"><button onclick="updateZcameraPosition()">z</button></br>
+<label for="numspheres">Number of Spheres: </label><input type="text" id="numspheres" name="numspheres"><button onclick="numberOfSpheres()">spheres</button></br>
+<button onclick="changeColor()">Change Color</button>
+</div>
